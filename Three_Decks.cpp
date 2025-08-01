@@ -11,25 +11,33 @@ int main()
     while (t--)
     {
         int a, b, c;
+        // bool found = false;
         cin >> a >> b >> c;
-        int diff = b - a;
+        // int diff = b - a;
 
-        for (int i = 0; i < diff; i += 1)
+        // for (int i = 0; i < diff; i += 1)
+        // {
+        //     if (c > b)
+        //     {
+        //         a++;
+        //         c--;
+        //     }
+        //     else
+        //     {
+        //         cout << "No" << endl;
+        //         found = true;
+        //         break;
+        //     }
+        // }
+
+        if ((b - a) <= (c - b))
         {
-            if (c > b)
-            {
-                a++;
-                c--;
-            }
-            else
-            {
-                cout << "No" << endl;
-                break;
-            }
+            int var = (c - (b-a)) - b;
+            if (var % 3 == 0)
+                cout << "YES" << endl;
+            else if (var % 3 != 0)
+                cout << "NO" << endl;
         }
-        int var = c - b;
-        if (var % 3 == 0)
-            cout << "YES" << endl;
         else
             cout << "NO" << endl;
     }
