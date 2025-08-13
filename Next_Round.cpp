@@ -7,7 +7,7 @@ int main()
     cin >> n >> k;
     int arr[n];
     for (int i = 0; i < n; i +=1)
-    cin >> arr[i];
+        cin >> arr[i];
 
     for (int i = 0; i < n; i +=1){
         if (arr[i] > 0 && arr[i] >= arr[k - 1]){
