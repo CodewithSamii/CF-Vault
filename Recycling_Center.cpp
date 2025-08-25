@@ -15,7 +15,7 @@
 
 //     while (left <= right) {
 //         if (p[left] < p[right]) {
-//             if (p[left] > last) {
+//             if (p[left] > last) 
 //                 res += 'L';
 //                 last = p[left];
 //                 left++;
