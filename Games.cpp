@@ -21,30 +21,27 @@ const ll INF = 1e18;
 #define debug(x)
 #endif
 
-ll factorial(int val)
-{
-    ll sum = 1;
-    for (int i = val; i >= 1; i--)
-        sum *= i;
-    return sum;
-}
 int main()
 {
     fasterio;
+    int n;
+    cin >> n;
 
-    ll aa, bb;
-    cin >> aa >> bb;
-    ll a = factorial(aa);
-    ll b = factorial(bb);
+    vector<int> home(n), away(n);
+    for (int i = 0; i < n; i += 1)
+        cin >> home[i] >> away[i];
 
-    ll min_val = min(a, b);
-
-    for (ll i = min_val; i >= 1; i--)
+    int count = 0;
+    for (int i = 0; i < n; i += 1)
     {
-        if (a % i == 0 && b % i == 0)
-            cout << i << endl;
-        break;
+        for (int j = 0; j < n; j += 1)
+        {
+            if (i == j)
+                continue;
+            if (home[i] == away[j])
+                count++;
+        }
     }
-
+    cout << count << endl;
     return 0;
 }

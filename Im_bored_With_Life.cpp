@@ -3,7 +3,7 @@ using namespace std;
 
 #define ll long long
 #define ld long double
-#define endl '\n'
+#define endl endl
 #define fasterio                      \
     ios_base::sync_with_stdio(false); \
     cin.tie(NULL);                    \
@@ -21,30 +21,18 @@ const ll INF = 1e18;
 #define debug(x)
 #endif
 
-ll factorial(int val)
-{
-    ll sum = 1;
-    for (int i = val; i >= 1; i--)
-        sum *= i;
-    return sum;
-}
 int main()
 {
     fasterio;
 
-    ll aa, bb;
-    cin >> aa >> bb;
-    ll a = factorial(aa);
-    ll b = factorial(bb);
+    ll a, b;
+    cin >> a >> b;
+    ll n = min(a, b);
 
-    ll min_val = min(a, b);
+    ll ans = 1;
+    for (long long i = 1; i <= n; i += 1)
+        ans *= i;
 
-    for (ll i = min_val; i >= 1; i--)
-    {
-        if (a % i == 0 && b % i == 0)
-            cout << i << endl;
-        break;
-    }
-
+    cout << ans << endl;
     return 0;
 }

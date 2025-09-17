@@ -1,3 +1,5 @@
+// Status : Unsolved
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -21,30 +23,24 @@ const ll INF = 1e18;
 #define debug(x)
 #endif
 
-ll factorial(int val)
-{
-    ll sum = 1;
-    for (int i = val; i >= 1; i--)
-        sum *= i;
-    return sum;
-}
 int main()
 {
     fasterio;
 
-    ll aa, bb;
-    cin >> aa >> bb;
-    ll a = factorial(aa);
-    ll b = factorial(bb);
-
-    ll min_val = min(a, b);
-
-    for (ll i = min_val; i >= 1; i--)
+    int n;
+    cin >> n;
+    map<string, int> mp;
+    for (int i = 0; i < n; i += 1)
     {
-        if (a % i == 0 && b % i == 0)
-            cout << i << endl;
-        break;
+        string x;
+        cin >> x;
+        mp[x]++;
     }
+    multimap<int, string> mm;
+    for (auto &p : mp)
+        mm.insert({p.second, p.first});
+    for (auto it = mm.rbegin(); it != mm.rend(); ++it)
+        cout << it -> second << endl;
 
     return 0;
 }

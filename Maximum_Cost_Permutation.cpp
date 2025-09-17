@@ -1,3 +1,5 @@
+// Status : Unsolved
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -21,29 +23,33 @@ const ll INF = 1e18;
 #define debug(x)
 #endif
 
-ll factorial(int val)
-{
-    ll sum = 1;
-    for (int i = val; i >= 1; i--)
-        sum *= i;
-    return sum;
-}
 int main()
 {
     fasterio;
 
-    ll aa, bb;
-    cin >> aa >> bb;
-    ll a = factorial(aa);
-    ll b = factorial(bb);
-
-    ll min_val = min(a, b);
-
-    for (ll i = min_val; i >= 1; i--)
+    int t;
+    cin >> t;
+    while (t--)
     {
-        if (a % i == 0 && b % i == 0)
-            cout << i << endl;
-        break;
+        int n, count = 0;
+        cin >> n;
+        vector<int> vec(n);
+        for (int i = 0; i < n; i += 1)
+        {
+            cin >> vec[i];
+            if (vec[i] == 0)
+                vec[i] = i + 1;
+        }
+
+        // for (int i : vec)
+        //     cout << i << ' ';
+        // cout << endl;
+        for (int i = 0; i < n; i += 1)
+        {
+            if (vec[i] != i + 1)
+                count++;
+        }
+        cout << count << endl;
     }
 
     return 0;
