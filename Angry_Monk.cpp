@@ -23,18 +23,20 @@ using namespace std;
 #define debug(x)
 #endif
 
-void solve() {
+void solve()
+{
     ll n, k;
     cin >> n >> k;
-    vector <ll > vec(k);
-    for(ll i = 0 ; i < k ; i += 1) cin >> vec[i];
+    vector<ll> vec(k);
+    for (ll i = 0; i < k; i += 1)
+        cin >> vec[i];
 
-    sort(vec.begin(), vec.end());
+    // sort(vec.begin(), vec.end());
     ll max_val = *max_element(vec.begin(), vec.end());
-    ll diff = n - max_val;
+    // ll diff = n - max_val;
     ll ones = count(vec.begin(), vec.end(), 1);
-    ll need = diff - ones;
-    ll operation = ones; ///1 1 1 1 6 6
+    // ll need = diff - ones;
+    // ll operation = ones; ///1 1 1 1 6 6
 
     // debug(max_val);
     // debug(diff);
@@ -42,34 +44,37 @@ void solve() {
     // debug(need);
     // debug(operation);
 
-    vector <ll > final;
-    for(ll i = 0; i < k; i += 1) {
-        if(vec[i] != 1) {
-            final.push_back(vec[i]);
-        }
-    }
-    ll nn = 0;
-    while(need != 0 && nn < (int)final.size()) {
+    // vector <ll > final;
+    // for(ll i = 0; i < k; i += 1) {
+    //     if(vec[i] != 1) {
+    //         final.push_back(vec[i]);
+    //     }
+    // }
+    // ll nn = 0;
+    // while(need != 0 && nn < (int)final.size()) {
 
-        if(final[nn] == 2) {
-            final[nn]--;
-            operation += 3;
-            need -= 2;
-        } else if(final[nn] > 2) {
-            final[nn]--;
-            operation += 2;
-            need -= 1;
-        } else if(vec[nn] < 2)
-            nn++;
-    }
-    cout << operation << endl;
+    //     if(final[nn] == 2) {
+    //         final[nn]--;
+    //         operation += 3;
+    //         need -= 2;
+    //     } else if(final[nn] > 2) {
+    //         final[nn]--;
+    //         operation += 2;
+    //         need -= 1;
+    //     } else if(vec[nn] < 2)
+    //         nn++;
+    // }
+    // cout << operation << endl;
+
+    cout << (k - 1) + (n - max_val) - ones << endl;
 }
 
-int main() {
+int main()
+{
     fasterio;
 
     ll t;
     cin >> t;
-    while(t--)
+    while (t--)
         solve();
 }
