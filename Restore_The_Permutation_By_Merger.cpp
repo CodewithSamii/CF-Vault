@@ -1,6 +1,6 @@
 /**
  *    Author: saminulislamsami
- *    Created: 28/9/2025 || 10:18 PM
+ *    Created: 30/9/2025 || 1:45 AM
  **/
 
 #include <bits/stdc++.h>
@@ -23,21 +23,24 @@ using namespace std;
 
 void solve()
 {
-    int a;
-    cin >> a;
-    bool status = true;
-    for (int n = 3; n <= 360; n += 1)
+    int n;
+    cin >> n;
+    vector<int> vec;
+    set<int> ans;
+
+    for (int i = 0; i < (n * 2); i += 1)
     {
-        if (360 % n == 0 && ((n - 2) * 180) / n == a)
+        int x;
+        cin >> x;
+        if (!ans.count(x))
         {
-            yes;
-            status = false;
-            break;
+            vec.push_back(x);
+            ans.insert(x);
         }
     }
-    if (status)
-        no;
-        
+    for (int i : vec)
+        cout << i << ' ';
+    cout << endl;
 }
 
 int main()
